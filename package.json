@@ -1,0 +1,16 @@
+{
+  "name": "manualbrows",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "http-server": "^0.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1 ./"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,122 @@
+<style>
+	.mreq { border: solid 1px red !important }
+	tr.err td p { color: red }
+</style>
+{literal}
+<script>
+	yaCounter31510713.reachGoal('PRICE_FORM_OPEN');
+
+	function ajaxSendForm(name, callback) {
+		form = $('#form_'+name);
+		formdata = form.serializeArray();
+		formdata.push({ name: 'comp', value: 'cform' });
+		$('#wrapper_'+name).parent().load('/', formdata, callback);
+	}
+
+</script>
+{/literal}
+<a class="close" type="button" aria-hidden="true" data-dismiss="modal" ></a>
+<h3>{$form.title}</h3>
+<div id="wrapper_{$form.name}">
+	<form method="post" action="" id="form_{$form.name}">
+		<input type="hidden" name="form_name" value="{$form.name}" />
+		<input type="hidden" name="send" value="1" />
+		{foreach from=$ext_data key=id item=ext}<input type="hidden" name="ext_data[{$id}]" value="{$ext|escape}" />{/foreach}
+		<table class="_cform" id="_cform_{$form.name}">
+			{foreach from=$fields item=field}
+			{if $field.value_type=="HIDDEN"}
+			<input type="hidden" name="data[{$field.id}]" value="{$values[$field.id]|escape:html}" />
+			{/if}
+			{if $field.value_type=="STRING" || $field.value_type=="EMAIL"}
+			<tr class="string {if $field.error} err{/if}">
+				<td class="data_{$field.id}" colspan="2" >
+					<input id="data_{$field.id}" type="text" name="data[{$field.id}]" value="{$values[$field.id]|escape:html}" placeholder="{$field.label}" />
+					{if $field.error=='NO_VALUE'}
+					<p class="alignleft font12 mgt5">Поле не заполнено!</p>
+					{/if}
+					{if $field.error=='INVALID_VALUE'}
+					<p class="alignleft font12 mgt5">Проверьте правильность заполнения поля!</p>
+					{/if}
+				</td>
+			</tr>
+			{/if}
+			{if $field.value_type=="TEXT"}
+			<tr class="text {if $field.error} err{/if}">
+				<td  colspan="2">
+					<textarea id="data_{$field.id}" name="data[{$field.id}]" placeholder="{$field.label}{if $field.required}*{/if}">{$values[$field.id]}</textarea>
+					{if $field.error=='NO_VALUE'}
+					<p class="alignleft font12 mgt5">Поле не заполнено!</p>
+					{/if}
+				</td>
+			</tr>
+			{/if}
+			{if $field.value_type=="SELECT"}
+			<tr{if $field.error} class="err"{/if}>
+			<td><label for="data_{$field.id}">{$field.label}{if $field.required}: <span class="required">*</span>{/if}</label></td>
+				<td>
+					<select id="data_{$field.id}" name="data[{$field.id}]">
+					{foreach from=$field.params.values item=value}
+					<option{if $value==$values[$field.id]} selected="selected"{/if}>{$value}</option>
+					{/foreach}
+					</select>
+					{if $field.error=='NO_VALUE'}
+					<p class="alignleft font12 mgt5">Поле не заполнено!</p>
+					{/if}
+				</td>
+			</tr>
+			{/if}
+			{if $field.value_type=="CHECKBOX"}
+			<tr{if $field.error} class="err"{/if}>
+				<td colspan="2">
+					<input id="data_{$field.id}" type="checkbox" name="data[{$field.id}]" {if $values}{if $values[$field.id]=='on'}checked="checked" {/if}{else}{if $field.params.default==1}checked="checked" {/if}{/if}/> <label for="data_{$field.id}">{$field.label}{if $field.required} <span class="required">*</span>{/if}</label>
+				</td>
+			</tr>
+			{/if}
+			{if $field.value_type=="RATING"}
+			<tr{if $field.error} class="err"{/if}>
+				<td><label for="data_{$field.id}">{$field.label}{if $field.required}: <span class="required">*</span>{/if}</label></td>
+				<td>
+					<input type="radio" name="data[{$field.id}]" value="1" class="input_rating_star" {if $values[$field.id]==1}checked="checked" {/if}/>
+					<input type="radio" name="data[{$field.id}]" value="2" class="input_rating_star" {if $values[$field.id]==2}checked="checked" {/if}/>
+					<input type="radio" name="data[{$field.id}]" value="3" class="input_rating_star" {if $values[$field.id]==3}checked="checked" {/if}/>
+					<input type="radio" name="data[{$field.id}]" value="4" class="input_rating_star" {if $values[$field.id]==4}checked="checked" {/if}/>
+					<input type="radio" name="data[{$field.id}]" value="5" class="input_rating_star" {if $values[$field.id]==5}checked="checked" {/if}/>
+					{if $field.error=='NO_VALUE'}
+					<p>Поле не заполнено!</p>
+					{/if}
+				</td>
+			</tr>
+			{/if}
+			{if $field.value_type=="CAPTCHA"}
+			<tr{if $field.error} class="err"{/if}>
+				<td  style="padding: 10px 0;">
+					<input type="text" id="data_{$field.id}" name="data[{$field.id}]" class="captcha" value="" placeholder="Контрольное число"/>
+					{if $field.error=='NO_VALUE'}
+					<p class="alignleft font12">Поле не заполнено!</p>
+					{/if}
+					{if $field.error=='INVALID_VALUE'}
+					<p class="alignleft font12">Неправильный контрольный код!</p>
+					{/if}
+				</td>
+				<td  style="padding: 10px 0;"><img src="/captcha.php?id={$field.id}&{php}echo rand();{/php}" alt="" /></td>
+			</tr>	
+			{/if}
+			{/foreach}
+			{*<tr class="hide alignleft colorgrey">
+				<td colspan="2">
+					<div class="font12 mgb30">* — Обязательное поле</div>
+				</td>
+			</tr>*}
+			<tr>
+				<td colspan="2">
+					<a href="javascript:void(0)" onclick="ajaxSendForm('{$form.name}')" class="cf_button">Отправить</a>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+{*
+<script>
+	$('input.input_rating_star').rating();
+</script>
+*}

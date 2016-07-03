@@ -1,0 +1,25 @@
+<html>
+<head><title></title></head>
+<body>
+<table border="1" width="100%">
+	{if $ext_data}
+	<tr>
+		<td>Товар:</td>
+		<td><a href="http://{$host}{$ext_data['item_url']}">{$ext_data['item_title']}</a></td>
+	</tr>
+	{/if}
+	{foreach from=$data item=field}
+	<tr>
+		<td width="30%">{$field.label}</td>
+		<td>
+			{if $field.value_type=='CHECKBOX'}
+				{if $field.value=='on'}+{else}-{/if}
+			{else}
+				{$field.value|nl2br}
+			{/if}
+		</td>
+	</tr>
+	{/foreach}
+</table>
+</body>
+</html>
