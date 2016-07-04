@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Manualbrows</title>
+	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/iconic.css">
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+
+	
+</head>
+<body>
+	<header>
+		<div class="wrapper clear">
+			<a class="logo floatleft mgr30" href="/">
+				<img src="img/logo.png" alt="Manualbrows" />
+			</a>
+			<div class="cart_info floatright">
+				<div class="count font13">1 товар</div>
+				<div class="summ font18">1288,-</div>
+			</div>
+
+			<ul class="main_menu">
+				<li><a class="active" href="">Учебный центр</a></li>
+				<li><a href="">Магазин</a></li>
+				<li><a href="">Услуги</a></li>
+				<li><a href="">Галерея работ</a></li>
+				<li><a href="">Библиотека мастера</a></li>
+				<li><a href="">Видео</a></li>
+				<li><a href="">Контакты</a></li>
+			</ul>
+		</div>
+	</header>
+
+	<main>
+		<div class="wrapper">
+			<div class="breadcrumbs">
+				<a class="hover" href="/">Mailbrows</a> <i class="icon-angle-right"></i>
+				<a class="hover" href="/">Новости</a> <i class="icon-angle-right"></i>
+				<a class="hover" href="/">Еще</a> <i class="icon-angle-right"></i>
+				<span class="colorgrey">Новость 1</span>
+			</div>
+
+			<div class="table">
+				<div class="center table-cell">
+					<h1>Оформление заказа</h1>
+
+					<div class="h2">Товары</div>
+					<table class="cart_items">
+						<tr>
+							<td width="100"><img src="/img/cart_item.png" alt="" /></td>
+							<td width="340"><a class="hover" href="">Линейка для отрисовки бровей</a></td>
+							<td width="100"><div class="price">450 руб.</div></td>
+							<td width="470">
+								<div class="quantity">
+									<a class="minus" href="#"><i class="icon-minus-squared-alt"></i></a>
+									<input id="calc_quantity" class="aligncenter" type="text" value="1">
+									<a class="plus" href="#"><i class="icon-plus-squared-alt"></i></a>
+								</div>
+							</td>
+							<td width="140"><div class="summ font24">450 руб.</div></td>
+							<td><a href=""><i class="icon-trash font24"></i></a></td>
+						</tr>
+						<tr>
+							<td width="100"><img src="/img/cart_item.png" alt="" /></td>
+							<td width="340"><a class="hover" href="">Линейка для отрисовки бровей</a></td>
+							<td width="100"><div class="price">450 руб.</div></td>
+							<td width="470">
+								<div class="quantity">
+									<a class="minus" href="#"><i class="icon-minus-squared-alt"></i></a>
+									<input id="calc_quantity" class="aligncenter" type="text" value="1">
+									<a class="plus" href="#"><i class="icon-plus-squared-alt"></i></a>
+								</div>
+							</td>
+							<td width="140"><div class="summ font24">450 руб.</div></td>
+							<td><a href=""><i class="icon-trash font24"></i></a></td>
+						</tr>
+					</table>
+					<div class="summ up font24 b mgb45">
+						<span class="mgr60">Подитог:</span>
+						1355 руб.
+					</div>
+
+					<div class="h2">Доставка</div>
+
+					<form class="cart_form clear" action="">
+						<div class="del_var clear">
+							<label class="floatleft">
+								<input type="radio" name="delivery" /> 
+								<img src="/img/radio.png" alt="">
+								<img src="/img/radio_checked.png" alt="">
+								Самовывоз 
+							</label>
+							<span class="del_price floatright font22">250 руб.</span>
+						</div>
+						<div class="del_var clear">
+							<label class="floatleft">
+								<input type="radio" name="delivery" /> 
+								<img src="/img/radio.png" alt="">
+								<img src="/img/radio_checked.png" alt="">
+								Курьером (Екатеринбург)
+							</label>
+							<span class="del_price floatright font22">250 руб.</span>
+						</div>
+						<div class="del_var clear">
+							<label class="floatleft">
+								<input type="radio" name="delivery" /> 
+								<img src="/img/radio.png" alt="">
+								<img src="/img/radio_checked.png" alt="">
+								Транспортная компания
+							</label>
+							<span class="del_price floatright font22">250 руб.</span>
+						</div>
+							
+						<div class="row-fluid mgb30">
+							<input class="span20" type="text" placeholder="ФИО">
+							<input class="span20" type="text" placeholder="E-mail">
+							<input class="span20" type="text" placeholder="Телефон">
+							<input class="span20" type="text" placeholder="Регион доставки">
+							<input class="span20" type="text" placeholder="Адрес доставки">
+						</div>
+						<hr>
+						<a class="btn floatright" href="">Оформить</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="wrapper clear aligncenter">
+			<div class="floatleft alignleft">
+				<div class="mgb5">Офисы компании находятся по адресам:</div>
+				<div class="font18">г.Екатеринбург, ул.Родонитовая, 12 / ул.Большакова, 75</div>
+			</div>
+			<div class="floatright soholab_logo nowrap">
+				<div class="inline-block mgr10 font12">Разработка сайта</div>
+				<img class="inline-block" src="/img/soholab_logo.png" alt="Soholab" />
+			</div>
+			<div class="phone font24">+7-912-226-92-22</div>
+		</div>
+	</footer>
+
+</body>
+</html>
