@@ -29,6 +29,7 @@
     font-weight: normal;
 }
 .thin { font-family: "RalewayLight"; }
+.b { font-family: "RalewayMedium";}
 
 
 * { margin: 0; padding: 0; }
@@ -280,7 +281,7 @@ header .logo { margin-top: 15px; }
 header .cart_info { border: 2px solid #fff;  padding: 10px 45px 20px 65px; background: url(/img/ico_cart.png) no-repeat scroll 20px 20px transparent; margin-top: 14px;}
 footer { background-color: #242527; padding: 25px 0; color: #fff; }
 footer a { color: #fff; }
-main { margin-bottom: 40px; }
+/*main { margin-bottom: 40px; }*/
 
 
 .main_menu { float: left; }
@@ -365,6 +366,8 @@ main { margin-bottom: 40px; }
 .payment input[type=radio] { display: none; }
 .payment input[type=radio]:checked + img { border-color: #ffd738; }
 
+.contacts_phone { text-align: center; font-size: 24px; padding: 20px 0; line-height: 1; margin-bottom: 15px; border-top: 2px solid #d7d7d7; border-bottom: 2px solid #d7d7d7; }
+.contacts_map { height: 950px; }
 
 
 
