@@ -16,8 +16,13 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.0.0",
+    "jquery": "1.9.1",
     "normalize-css": "^4.1.1",
-    "baguettebox.js": "^1.7.0"
+    "baguettebox.js": "^1.7.0",
+    "bootstrap": "^3.3.6"
+  },
+  "resolutions": {
+    "jquery": "1.9.1 - 2",
+    "bootstrap": "^3.3.6"
   }
 }
