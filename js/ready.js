@@ -1,5 +1,4 @@
 $(function(){
-	baguetteBox.run('.baguetteBox');
 
 	$(' .quantity').on('click','a', function(e){
 		var self = $(this),
@@ -15,4 +14,14 @@ $(function(){
 		}
 		return false;
 	});
+});
+
+$(function(){
+	var win_height = document.documentElement.clientHeight,
+		header_height = $('header').outerHeight(),
+		footer_height = $('footer').outerHeight(),
+		min_height = win_height - header_height - footer_height;
+		
+	
+	$('main').css('min-height', min_height);	
 });
